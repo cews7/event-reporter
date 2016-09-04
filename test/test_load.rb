@@ -9,7 +9,6 @@ class LoadTest < Minitest::Test
 
   def test_load_can_load_csv
     content = Load.new.contents
-
     assert_instance_of CSV, content
   end
 end
