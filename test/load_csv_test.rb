@@ -11,4 +11,8 @@ class LoadTest < Minitest::Test
     content = Load.new.contents
     assert_instance_of CSV, content
   end
+
+  def test_csv_can_be_formated
+    #unsure how to test this
+  end
 end
