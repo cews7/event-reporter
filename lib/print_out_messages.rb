@@ -17,5 +17,12 @@ module PrintOutMessages
     puts "goodbye"
     sleep(2)
     exit
-  end  
+  end
+
+def self.help_load_filename
+  puts "load takes file and puts aweofijwaofej"
+
+end
+
+#put all help command methods here 
 end

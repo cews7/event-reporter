@@ -9,6 +9,7 @@ include CleanData
   def initialize(filename = "event_attendees.csv")
     @contents = CSV.open filename, :headers => true, :header_converters => :symbol
     @attendees = @contents.map { |person|  Attendees.new(person)}
+    #CSV.parse(File.read)
     binding.pry
   end
 end

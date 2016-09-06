@@ -16,9 +16,15 @@ class Repl
       case command
       when 'quit' then PrintOutMessages.goodbye
       when 'help' then puts PrintOutMessages.help
-      when 'help ' #how are you going to make this not be a massive elsif?
+      when 'help find' then PrintOutMessages.help_load_filename
+      when 'help '
+        #Follow above format for doing all the help commands "stock phrases"
+        #
+        #
+        #
         #when certainCommand
         #do somethign to attendees
+      when 'queue count '
       else
         puts "Sorry, I don't know how to #{command}"
       end

@@ -1,7 +1,8 @@
 require './lib/clean_data'
-  attr_reader :first_name, :phone, :zip
+
 
 class Attendees
+  attr_reader :first_name, :phone, :zip
   include CleanData
 
 

@@ -11,13 +11,13 @@ module CleanData
     if phone_number.length < 10
       puts "(don) tca llme"
     elsif phone_number.length == 11 && phone_number[0] == 1
-      phone_number.reverse.chop.reverse
+      phone_number.slice!(0)
     elsif phone_number.length == 11 && phone_number[0] != 1
       puts "(don) tca llme"
     elsif phone_number.length > 11
       puts "(don) tca llme"
     end
-    #catch the E+ 
+    #catch the E+
   end
 
 end
