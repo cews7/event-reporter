@@ -1,25 +1,25 @@
 require './lib/clean_data'
 
-
 class Attendees
-  attr_reader :first_name, :phone, :zip
   include CleanData
-
+  attr_reader :id,
+              :reg_date,
+              :first_name,
+              :last_name,
+              :email,
+              :phone,
+              :street,
+              :zip
 
   def initialize(attendee_hash)
+    @id = attendee_hash[:id]
+    @reg_date = attendee_hash[:reg_date]
     @first_name = attendee_hash[:first_name]
-    #
-    #
-    #
+    @last_name = attendee_hash[:last_name]
+    @email_address = attendee_hash[:email_address]
     @phone = clean_phone_number(attendee_hash[:homephone])
+    @street = attendee_hash[:street]
+    @city = attendee_hash[:city]
     @zip = clean_zipcode(attendee_hash[:zipcode])
   end
-
 end
-# def clean_zip(zip_code)
-#  # do the things to clean a zip code
-# end
-#
-# def clean_phone(phone)
-#   # do the things
-# end

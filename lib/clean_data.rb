@@ -2,22 +2,9 @@ module CleanData
   def clean_zipcode(zipcode)
     zipcode.to_s.rjust(5,"0")[0..4]
   end
-  def clean_phone_number(phone_number)
-    phone_number.gsub!('(','')
-    phone_number.gsub!(')','')
-    phone_number.gsub!(' ','')
-    phone_number.gsub!('-','')
-    phone_number.gsub!('.','')
-    if phone_number.length < 10
-      puts "(don) tca llme"
-    elsif phone_number.length == 11 && phone_number[0] == 1
-      phone_number.slice!(0)
-    elsif phone_number.length == 11 && phone_number[0] != 1
-      puts "(don) tca llme"
-    elsif phone_number.length > 11
-      puts "(don) tca llme"
-    end
-    #catch the E+
-  end
 
+  def clean_phone_number(phone_number)
+    phone_number.gsub!(/[^0-9]/,"")
+    phone_number.ljust(10 , "0")[0..9]
+  end
 end
