@@ -13,13 +13,7 @@ class Repl
       argument_2 = input[2]
       argument_3 = input[3]
       # binding.pry
-      message = MessageHandler.delegate(command, argument_1, argument_2)
-
-      if message == nil
-        puts "Sorry, I don't know the command: #{command}"
-      else
-        puts message
-      end
+      MessageHandler.delegate(command, argument_1, argument_2)
     end
   end
 end

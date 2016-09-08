@@ -1,6 +1,6 @@
 module PrintOutMessages
   def self.help
-    "    |===============================|
+    puts "    |===============================|
     | load <filename>               |
     | help                          |
     | help <command>                |
@@ -49,7 +49,7 @@ module PrintOutMessages
      *find state VA"
   end
 
-  def self.queue_clear
+  def self.help_clear_queue
     puts "Empty the queue"
   end
 
