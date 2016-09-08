@@ -1,6 +1,6 @@
 module PrintOutMessages
   def self.help
-    "     |===============================|
+    "    |===============================|
     | load <filename>               |
     | help                          |
     | help <command>                |
@@ -14,9 +14,7 @@ module PrintOutMessages
   end
 
   def self.goodbye
-    puts "goodbye"
-    sleep(2)
-    exit
+    puts "Goodbye!"
   end
 
   def self.help_load_filename
@@ -54,5 +52,9 @@ module PrintOutMessages
   def self.queue_clear
     puts "Empty the queue"
   end
-  #put all help command methods here
+
+  def self.no_method_that_is_in_spec
+    puts "sorry I don't know that #{command}"
+  end
+  # put all help command methods here
 end

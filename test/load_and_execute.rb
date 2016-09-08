@@ -12,4 +12,7 @@ class LoadAndExecuteTest < Minitest::Test
 
     assert_equal 1, sample.find("first_name", "Allison").count
   end
+
+  def test_command_works
+  end 
 end
