@@ -36,6 +36,7 @@ class MessageHandler
       save_to("exported_csv.csv")
     end
   end
+
   def self.find(attribute, criteria)
     clear
     @load.attendeesrepo.select do |attendee|
@@ -45,12 +46,11 @@ class MessageHandler
     end
   end
 
-  def save_to(filename)
-    csv_file = CSV.new filename, 'w' :write_headers => true
-    csv_file << ["LAST NAME","FIRST NAME","EMAIL","ZIPCODE","CITY","STATE","ADDRESS","PHONE"]
-    csv_file << @load.queue
-
-  end
+  # def save_to(filename)
+  #   csv_file = CSV.new filename, 'w' :write_headers => true
+  #   csv_file << ["LAST NAME","FIRST NAME","EMAIL","ZIPCODE","CITY","STATE","ADDRESS","PHONE"]
+  #   csv_file << @load.queue
+  # end
 
   def self.quit
     PrintOutMessages.goodbye
@@ -100,19 +100,6 @@ class MessageHandler
     puts "LAST NAME".ljust(12, " ") + "FIRST NAME".ljust(15, " ") + "EMAIL".ljust(35, " ") + "ZIPCODE".ljust(10, " ") + "CITY".ljust(20, " ") +
     "STATE".ljust(10, " ") + "ADDRESS".ljust(30, " ") + "PHONE".ljust(20, " ") + "DISTRICT".ljust(20, " ")
     "\n"
-    @load.queue.each do |attendee|
-      puts "#{attendee.last_name.ljust(12, " ")}#{attendee.first_name.ljust(15, " ")} #{attendee.email_address.ljust(35, " ")} #{attendee.zipcode.ljust(10, " ")}#{attendee.city.ljust(20, " ")}#{attendee.state.ljust(10, " ")}#{attendee.street.ljust(30, " ")}#{attendee.home_phone.ljust(20, " ")}#{attendee.zipcode.ljust(20, " ")}"
-    end
-  end
-
-  def self.print_by(attribute)
-    puts "LAST NAME".ljust(12, " ") + "FIRST NAME".ljust(15, " ") + "EMAIL".ljust(35, " ") + "ZIPCODE".ljust(10, " ") + "CITY".ljust(20, " ") +
-    "STATE".ljust(10, " ") + "ADDRESS".ljust(30, " ") + "PHONE".ljust(20, " ") + "DISTRICT".ljust(20, " ")
-    "\n"
-
-    @load.queue.sort do |x, y|
-      y.attribute <=> x.attribute
-    end
     @load.queue.each do |attendee|
       puts "#{attendee.last_name.ljust(12, " ")}#{attendee.first_name.ljust(15, " ")} #{attendee.email_address.ljust(35, " ")} #{attendee.zipcode.ljust(10, " ")}#{attendee.city.ljust(20, " ")}#{attendee.state.ljust(10, " ")}#{attendee.street.ljust(30, " ")}#{attendee.home_phone.ljust(20, " ")}#{attendee.zipcode.ljust(20, " ")}"
     end

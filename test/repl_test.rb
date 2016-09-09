@@ -4,11 +4,13 @@ require './lib/repl'
 
 class ReplTest < MiniTest::Test
 
-  def test_quit_returns_goodbye
-    @repl = Repl.new
-    @repl.run
+  def test_repl_works
+    test = Repl.new
+    test.run
 
     assert_equal "goodbye" && exit, 'quit'
   end
+
+  
 
 end

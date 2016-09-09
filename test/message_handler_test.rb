@@ -6,7 +6,10 @@ require './lib/load'
 class MessageHandlerTest < Minitest::Test
   def test_can_print_to_terminal
     sample = MessageHandler.new
-    sample.class.find("first_name", "Chris")
-    refute sample.class.print
+
+    sample.find("first_name", "Chris")
   end
+
+  # def test_
+  # end
 end

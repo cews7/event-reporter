@@ -1,4 +1,3 @@
-require './lib/print_out_messages'
 require './lib/message_handler'
 require 'pry'
 class Repl
