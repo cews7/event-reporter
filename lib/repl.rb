@@ -1,39 +1,18 @@
-require './lib/print_out_messages'
-require './lib/commands'
-
+require './lib/message_handler'
+require 'pry'
 class Repl
-  include PrintOutMessages
-
   def run
-    # command_runner = Commands.new
-    # command_runner.load_data(filename)
+    puts "Welcome to Event Reporter!"
     command = ""
-    while command != "q"
+    until command == "quit"
       printf "Enter command: "
-      input = gets.chomp
-      parts = input.split(" ")
-      command = parts.join(" ")
-      case command
-      when 'quit' then PrintOutMessages.goodbye
-      when 'help' then puts PrintOutMessages.help
-      when 'help find' then PrintOutMessages.help_find_filename
-      when 'help load' then PrintOutMessages.help_load_filename
-      when 'help queue count' then PrintOutMessages.help_queue_count
-      when 'help clear' then PrintOutMessages.help_clear_queue
-      when 'help help' then PrintOutMessages.help_help
-      when 'help queue print' then PrintOutMessages.help_queue_print
-      when 'help queue print by' then PrintOutMessages.help_queue_print_by_attribute
-      when 'help queue save to' then PrintOutMessages.help_queue_save_to
-        #Follow above format for doing all the help commands "stock phrases"
-        #
-        #
-        #
-        #when certainCommand
-        #do somethign to attendees
-      when 'queue count'
-      else
-        puts "Sorry, I don't know how to #{command}"
-      end
+      input = gets.chomp.split(" ")
+      command = input[0]
+      argument_1 = input[1]
+      argument_2 = input[2]
+      argument_3 = input[3]
+      # binding.pry
+      MessageHandler.delegate(command, argument_1, argument_2, argument_3)
     end
   end
 end
