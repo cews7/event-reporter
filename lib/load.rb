@@ -4,15 +4,35 @@ require './lib/attendees'
 require './lib/clean_data'
 
 class Load
-  include CleanData
-  attr_reader :attendeesrepo, :contents, :queue
+  attr_reader :attendeesrepo, :contents
+  attr_accessor :queue
 
-  def initialize(filename = "event_attendees.csv")
+  def initialize
+    @queue = []
+    load
+  end
+
+  def load(filename = "event_attendees.csv")
     @contents = CSV.readlines filename, :headers => true, :header_converters => :symbol
     @attendeesrepo = @contents.map { |person| Attendees.new(person) }
-    @queue = []
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # def find(attribute, criteria)
 #   @attendeesrepo.select do |attendee|
 #     if attendee.send("#{attribute}").upcase.include?(criteria.upcase)

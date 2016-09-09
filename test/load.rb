@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/load_csv'
 
-class LoadAndExecuteTest < Minitest::Test
+class LoadTest < Minitest::Test
   def test_load_class_exists
     assert_instance_of Load, LoadAndExecute.new
   end
@@ -14,5 +14,5 @@ class LoadAndExecuteTest < Minitest::Test
   end
 
   def test_command_works
-  end 
+  end
 end
